@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="rojoApagado">#8A0808</color>
+    <color name="amarilloApagado">#AEB404</color>
+    <color name="amarilloEncendido">#F7FE2E</color>
+    <color name="verdeApagado">#0B610B</color>
+    <color name="verdeEncendido">#2EFE2E</color>
+    <color name="azulEncendido">#2E2EFE</color>
+    <color name="azulApagado">#0B0B61</color>
+    <color name="rosaApagado">#8A084B</color>
+    <color name="rosaEncendido">#FE2EC8</color>
+    <color name="rojoEncendido">#FF0000</color>
+</resources>
