@@ -1,17 +1,18 @@
 package com.example.jota.simonj;
 
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.media.MediaPlayer;
 
 
 public class MainActivity extends AppCompatActivity {
 
     Button iniciar;
+    MediaPlayer[] sounds;
     Handler manejador1 = new Handler();
     Handler manejador2 = new Handler();
     int botonesPulsados = 0;
@@ -36,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
         colores[2] = (Button) findViewById(R.id.azul_btn);
         colores[3] = (Button) findViewById(R.id.rosa_btn);
         colores[4] = (Button) findViewById(R.id.verde_btn);
-
+        sounds=new MediaPlayer[5];
+        sounds[0]=MediaPlayer.create(this,R.raw.sonido0);
+        sounds[1]=MediaPlayer.create(this,R.raw.sonido1);
+        sounds[2]=MediaPlayer.create(this,R.raw.sonido2);
+        sounds[3]=MediaPlayer.create(this,R.raw.sonido3);
+        sounds[4]=MediaPlayer.create(this,R.raw.sonido4);
     }
 
 
@@ -51,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         b.setBackgroundResource(R.color.rojoEncendido);
+                        sounds[0].start();
                     }
                 },tiempoEncendido);
 
@@ -59,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         b.setBackgroundResource(R.color.verdeEncendido);
+                        sounds[1].start();
                     }
                 },tiempoEncendido);
             }else if(b.getId()==R.id.azul_btn){
@@ -66,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         b.setBackgroundResource(R.color.azulEncendido);
+                        sounds[2].start();
                     }
                 },tiempoEncendido);
             }else if(b.getId()==R.id.amarillo_btn){
@@ -73,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         b.setBackgroundResource(R.color.amarilloEncendido);
+                        sounds[3].start();
                     }
                 },tiempoEncendido);
             }else{
@@ -80,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         b.setBackgroundResource(R.color.rosaEncendido);
+                        sounds[4].start();
                     }
                 },tiempoEncendido);
             }
@@ -124,18 +135,23 @@ public class MainActivity extends AppCompatActivity {
         final Button b = (Button)v;
         if(id==R.id.rojo_btn){
             v.setBackgroundResource(R.color.rojoEncendido);
+            sounds[0].start();
             indice=0;
         }else if(id==R.id.verde_btn){
             v.setBackgroundResource(R.color.verdeEncendido);
+            sounds[1].start();
             indice=4;
         }else if(id==R.id.azul_btn){
             v.setBackgroundResource(R.color.azulEncendido);
+            sounds[2].start();
             indice=2;
         }else if(id==R.id.amarillo_btn){
             v.setBackgroundResource(R.color.amarilloEncendido);
+            sounds[3].start();
             indice=1;
         }else{
             v.setBackgroundResource(R.color.rosaEncendido);
+            sounds[4].start();
             indice=3;
         }
 
