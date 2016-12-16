@@ -1,5 +1,6 @@
 package com.example.jota.simonj;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -175,10 +176,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void comprobar(){
+        Intent intento = new Intent(MainActivity.this, MensajePartida.class);
+        String mensaje = "";
         int nacertados=0;
         for(int i=0;i<ordenBotones.length;i++){
             if(ordenBotones[i] != ordenJugador[i]){
                 Toast.makeText(this, "Has perdido", Toast.LENGTH_SHORT).show();
+                mensaje = "Has perdido :(";
+                intento.putExtra("VICTORIA_DERROTA", mensaje);
+                startActivity(intento);
             }else{
                 nacertados++;
             }
@@ -186,6 +192,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(nacertados==5){
             Toast.makeText(this, "Has ganado", Toast.LENGTH_SHORT).show();
+            mensaje = "Has ganado :)";
+            intento.putExtra("VICTORIA_DERROTA", mensaje);
+            startActivity(intento);
         }
         enabledPlay=false;
         botonesPulsados=0;
